@@ -49,8 +49,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // lotteryScratch 인스턴스 생성
     const scratch = new lotteryScratch(
         scratchContainer,      // element
-        293,                   // width
-        331,                   // height
+        293,                   // width 293
+        331,                   // height 331
         50,                    // circleRadius (지워지는 원 크기)
         './images/img-lottery.png' // 덮을 이미지
     );
@@ -66,6 +66,14 @@ window.addEventListener('DOMContentLoaded', () => {
 setTimeout(() => {
     document.getElementById('resultText').innerText = "🎉 여러분 저 엄마 됩니다! 🎉";
 }, 3000);
+
+function preventScroll(e) {
+    e.preventDefault();
+}
+
+window.addEventListener('wheel', preventScroll, { passive: false });
+window.addEventListener('touchmove', preventScroll, { passive: false });
+window.addEventListener('scroll', preventScroll, { passive: false });
 </script>
 </body>
 </html>
